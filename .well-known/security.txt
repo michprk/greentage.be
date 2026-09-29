@@ -1,0 +1,4 @@
+Contact: mailto:info.greentage@gmail.com
+Expires: 2027-09-29T00:00:00.000Z
+Preferred-Languages: fr, nl, en
+Canonical: https://michprk.github.io/greentage.be/.well-known/security.txt

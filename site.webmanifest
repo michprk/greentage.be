@@ -1,0 +1,16 @@
+{
+  "name": "Greentage — plantes, fleurs & vintage",
+  "short_name": "Greentage",
+  "description": "Plantes, fleurs de saison et objets vintage à deux pas du Cinquantenaire, Bruxelles.",
+  "lang": "fr-BE",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#fefffc",
+  "theme_color": "#fefffc",
+  "icons": [
+    { "src": "icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "icon-512.png", "sizes": "512x512", "type": "image/png" },
+    { "src": "icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}

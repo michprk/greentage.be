@@ -1,0 +1,6 @@
+# Greentage — plantes, fleurs & vintage (Bruxelles)
+User-agent: *
+Allow: /
+Disallow: /404.html
+
+Sitemap: https://michprk.github.io/greentage.be/sitemap.xml
