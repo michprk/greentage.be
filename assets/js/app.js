@@ -247,7 +247,8 @@
     groups.forEach((list) => { if (list.length > 1) list.forEach((el, i) => el.style.setProperty('--d', (i * 0.09).toFixed(2) + 's')); });
 
     const targets = $$('.reveal, .split:not(.hero__title), .tile, .act-card');
-    if (reduced || !('IntersectionObserver' in window)) { targets.forEach((el) => el.classList.add('is-in')); return; }
+    // Mouvements réduits : les éléments apparaissent quand même, en simple fondu (voir le CSS)
+    if (!animated || !('IntersectionObserver' in window)) { targets.forEach((el) => el.classList.add('is-in')); return; }
     const io = new IntersectionObserver((entries) => {
       entries.forEach((e) => {
         if (!e.isIntersecting) return;
@@ -355,9 +356,10 @@
   function initHero() {
     const hero = $('[data-hero]');
     if (!hero) return;
-    requestAnimationFrame(() => hero.classList.add('is-in'));
     const title = $('.hero__title', hero);
-    if (title) requestAnimationFrame(() => title.classList.add('is-in'));
+    const show = () => { hero.classList.add('is-in'); if (title) title.classList.add('is-in'); };
+    requestAnimationFrame(show);
+    setTimeout(show, 120); // filet de sécurité (onglet ouvert en arrière-plan)
     if (reduced) return;
     const media = $('[data-hero-media]', hero);
     const card = $('[data-hero-card]', hero);
@@ -478,7 +480,7 @@
     if (!el) return;
     const items = [];
     splitWords(el, (node) => items.push(node));
-    if (reduced) { items.forEach((it) => it.classList.add('is-on')); return; }
+    if (!animated) { items.forEach((it) => it.classList.add('is-on')); return; }
     let visible = false;
     let lastN = -1;
     onScreen(el, (v) => { visible = v; if (v) wake(); }, '200px');
@@ -1307,6 +1309,19 @@
     });
   }
 
+  // Bouton « Activer / Réduire les animations » : le choix est mémorisé sur l’appareil
+  function initMotionToggle() {
+    $$('[data-motion-toggle]').forEach((b) => {
+      const on = !html.classList.contains('reduced');
+      b.textContent = on ? 'Réduire les animations' : 'Activer les animations';
+      b.setAttribute('aria-pressed', String(on));
+      b.addEventListener('click', () => {
+        try { localStorage.setItem('gt_motion', on ? 'reduce' : 'full'); } catch (e) { /* ignore */ }
+        location.reload();
+      });
+    });
+  }
+
   function initTracking() {
     d.addEventListener('click', (e) => {
       const a = e.target.closest('a');
@@ -1344,6 +1359,7 @@
   run(initToc);
   run(initLost);
   run(initTracking);
+  run(initMotionToggle);
   $$('[data-year]').forEach((el) => { el.textContent = String(new Date().getFullYear()); });
   measureDoc();
   html.classList.add('js-ready');

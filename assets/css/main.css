@@ -1051,6 +1051,16 @@ html.reduced *, html.reduced *::before, html.reduced *::after {
   scroll-behavior: auto !important;
 }
 html.reduced .hero__scroll-line::after { display: none; }
+/* …mais le site reste vivant : de simples fondus, sans déplacement ni zoom */
+html.reduced .reveal, html.reduced .hero__card, html.reduced .hero__foot { transform: none !important; transition: opacity .9s ease !important; transition-delay: var(--d, 0s) !important; }
+html.reduced .tile { opacity: 0; transition: opacity .9s ease !important; }
+html.reduced .tile.is-in { opacity: 1; }
+html.reduced .tile__img, html.reduced .act-card__arch { clip-path: none !important; }
+html.reduced .tile__img img, html.reduced .hero__media img { transform: none !important; }
+html.reduced .split .w > span { transform: none !important; opacity: 0; transition: opacity .8s ease !important; transition-delay: calc(var(--i, 0) * 30ms) !important; }
+html.reduced .split.is-in .w > span { opacity: 1; }
+html.reduced .manifesto__text .w { transition: opacity .6s ease !important; }
+html.reduced .pill { width: 1.5em !important; margin: 0 .08em !important; }
 
 /* ---------- 22. Transitions entre pages (navigateurs récents) ---------- */
 @view-transition { navigation: auto; }

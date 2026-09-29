@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-dhlTVvmwxDImkVppq/vK1ODk3/lKwkraVJEAsAkmZTo=' https://www.googletagmanager.com; style-src 'self'; img-src 'self' data: https://*.google-analytics.com https://*.googletagmanager.com; font-src 'self'; connect-src 'self' https://*.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com https://*.workers.dev; manifest-src 'self'; frame-src 'none'; object-src 'none'; base-uri 'self'; form-action 'self'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-IwivebZcZQyEOhAetYEbmcmWu5tc3QOKMOIQKYglDns=' https://www.googletagmanager.com; style-src 'self'; img-src 'self' data: https://*.google-analytics.com https://*.googletagmanager.com; font-src 'self'; connect-src 'self' https://*.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com https://*.workers.dev; manifest-src 'self'; frame-src 'none'; object-src 'none'; base-uri 'self'; form-action 'self'">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <title>Confidentialité &amp; RGPD — Greentage</title>
 <meta name="description" content="Comment Greentage protège vos données personnelles : formulaire, cookies, mesure d’audience, durée de conservation et vos droits (RGPD).">
@@ -25,9 +25,9 @@
 <link rel="manifest" href="/greentage.be/site.webmanifest">
 <link rel="preload" href="/greentage.be/assets/fonts/fraunces-normal-300-700-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/greentage.be/assets/fonts/hanken-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="/greentage.be/assets/css/main.css?v=bef1a4f6f8">
-<script>(function(){var d=document.documentElement,l=location,s,R;if(l.protocol==='http:'&&!/^(localhost|127\.0\.0\.1|\[::1\])$/.test(l.hostname)){l.replace('https:'+l.href.slice(5));return}d.classList.add('js');R=matchMedia('(prefers-reduced-motion: reduce)').matches;try{s=sessionStorage;var m=(l.search.match(/[?&]motion=(full|reduce)/)||[])[1];if(m)s.setItem('gt_motion',m);m=s.getItem('gt_motion');if(m)R=m==='reduce';if(!R&&d.getAttribute('data-intro')&&!s.getItem('gt_intro'))d.classList.add('intro')}catch(e){}if(R)d.classList.add('reduced');setTimeout(function(){if(!d.classList.contains('js-ready'))d.classList.remove('js','intro')},6000)})();</script>
-<script src="/greentage.be/assets/js/app.js?v=bef1a4f6f8" defer></script>
+<link rel="stylesheet" href="/greentage.be/assets/css/main.css?v=c6aa0a28c9">
+<script>(function(){var d=document.documentElement,l=location,R,m;if(l.protocol==='http:'&&!/^(localhost|127\.0\.0\.1|\[::1\])$/.test(l.hostname)){l.replace('https:'+l.href.slice(5));return}d.classList.add('js');R=matchMedia('(prefers-reduced-motion: reduce)').matches;try{m=(l.search.match(/[?&]motion=(full|reduce)/)||[])[1];if(m)localStorage.setItem('gt_motion',m);m=localStorage.getItem('gt_motion');if(m)R=m==='reduce'}catch(e){}if(R)d.classList.add('reduced');try{if(!R&&d.getAttribute('data-intro')&&!sessionStorage.getItem('gt_intro'))d.classList.add('intro')}catch(e){}setTimeout(function(){if(!d.classList.contains('js-ready'))d.classList.remove('js','intro')},6000)})();</script>
+<script src="/greentage.be/assets/js/app.js?v=c6aa0a28c9" defer></script>
 </head>
 <body class="page-inner">
 
@@ -198,7 +198,8 @@
           <thead><tr><th scope="col">Nom</th><th scope="col">À quoi il sert</th><th scope="col">Durée</th><th scope="col">Type</th></tr></thead>
           <tbody>
             <tr><td><code>gt_consent</code> (stockage local)</td><td>Mémorise vos choix en matière de cookies</td><td>6&nbsp;mois</td><td>Nécessaire</td></tr>
-            <tr><td><code>gt_intro</code>, <code>gt_motion</code> (stockage de session)</td><td>N’affiche l’animation d’ouverture qu’une fois&nbsp;; retient votre préférence d’animations</td><td>Fin de la visite</td><td>Nécessaire</td></tr>
+            <tr><td><code>gt_intro</code> (stockage de session)</td><td>N’affiche l’animation d’ouverture qu’une fois par visite</td><td>Fin de la visite</td><td>Nécessaire</td></tr>
+            <tr><td><code>gt_motion</code> (stockage local)</td><td>Retient votre choix «&nbsp;Activer / Réduire les animations&nbsp;»</td><td>Jusqu’à effacement par votre navigateur</td><td>Nécessaire</td></tr>
             <tr><td><code>gt_form_ts</code> (stockage local)</td><td>Anti-spam&nbsp;: une demande par minute au maximum</td><td>Jusqu’à effacement par votre navigateur</td><td>Nécessaire</td></tr>
             <tr><td><code>_ga</code>, <code>_ga_*</code></td><td>Mesure d’audience anonymisée (Google Analytics&nbsp;4)</td><td>13&nbsp;mois maximum</td><td>Avec votre accord</td></tr>
           </tbody>
@@ -243,6 +244,7 @@
         <li><a href="/greentage.be/confidentialite.html" aria-current="page">Confidentialité &amp; RGPD</a></li>
         <li><a href="/greentage.be/cgu.html">Conditions d’utilisation</a></li>
         <li><button type="button" class="footer__linkbtn" data-cookie-settings>Gérer les cookies</button></li>
+        <li><button type="button" class="footer__linkbtn" data-motion-toggle>Animations</button></li>
       </ul>
     </div>
   </div>
