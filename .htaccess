@@ -9,6 +9,9 @@
   RewriteCond %{HTTPS} !=on
   RewriteCond %{HTTP:X-Forwarded-Proto} !https
   RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+  # Formulaire : /api/contact → api/contact.php (hébergement avec PHP, ex. Hostinger)
+  RewriteRule ^api/contact/?$ api/contact.php [L]
 </IfModule>
 
 # 2. Page 404 personnalisée

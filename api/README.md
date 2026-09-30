@@ -1,5 +1,13 @@
 # API du formulaire (hors du site)
 
+Deux versions, au choix selon l’hébergement :
+
+- **`contact.php`** — pour un hébergement avec PHP (**Hostinger**, OVH, one.com…). Rien à
+  installer : `scripts/export-hostinger.sh` l’inclut et relie le formulaire à `/api/contact`.
+  Réglages en haut du fichier (adresse qui reçoit les demandes, expéditeur du domaine).
+- **`contact-worker.js`** — pour un site statique (GitHub Pages, Cloudflare Pages) : API séparée
+  sur Cloudflare Workers, décrite ci-dessous.
+
 Le site est 100 % statique (GitHub Pages) : il ne contient **aucune clé secrète**.
 Pour que le formulaire « Commander ou nous écrire » envoie un vrai e-mail à la boutique,
 on branche cette petite API, hébergée à part sur **Cloudflare Workers** (gratuit).

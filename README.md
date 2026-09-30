@@ -119,10 +119,25 @@ git add -A && git commit -m "…" && git push
 
 GitHub met le site à jour en une minute environ.
 
-**Nom de domaine** : pour passer sur `greentage.be`, faire pointer le domaine vers GitHub Pages
-(*Settings → Pages → Custom domain*), puis remplacer `https://michprk.github.io/greentage.be`
-et `/greentage.be/` par la nouvelle adresse dans les pages, `sitemap.xml`, `robots.txt`
-et `.well-known/security.txt`.
+## Mise en ligne sur le nom de domaine (Hostinger)
+
+```bash
+bash scripts/export-hostinger.sh          # → dist/greentage-hostinger.zip
+```
+
+Le script prépare automatiquement la version finale pour `https://greentage.be` : adresses à la
+racine du domaine, site visible sur Google (plus de `noindex`, sauf la page 404), mentions de
+démonstration retirées, formulaire relié à `api/contact.php` (envoi des demandes par e-mail côté
+serveur, anti-spam, aucune clé dans le site). Il suffit ensuite, dans hPanel :
+
+1. *Fichiers → Gestionnaire de fichiers → public_html* : supprimer le fichier par défaut,
+   téléverser le `.zip`, puis *Extraire* directement dans `public_html`.
+2. *Sécurité → SSL* : activer le certificat gratuit et « Forcer HTTPS ».
+3. *E-mails* : créer l’adresse `site@greentage.be` (expéditeur du formulaire, voir `api/contact.php`).
+4. Tester : le cadenas, le formulaire (la demande arrive sur info.greentage@gmail.com) et une
+   adresse inexistante (page 404).
+
+Autre domaine : `bash scripts/export-hostinger.sh autre-domaine.be`.
 
 ## À compléter avant la mise en ligne
 
