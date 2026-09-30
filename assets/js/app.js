@@ -925,7 +925,7 @@
   }
 
   /* ------------------------------------------------------------------------
-     16. Grand mot « Greenpeace » du pied de page : les lettres se lèvent
+     16. Grand mot « Greentage » du pied de page : les lettres se lèvent
      ------------------------------------------------------------------------ */
   function initGiant() {
     const g = $('[data-giant]');
