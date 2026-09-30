@@ -54,8 +54,10 @@ Aucune dépendance et aucune étape de compilation : HTML, CSS et JavaScript sim
 - À la souris : curseur qui s’agrandit et nomme l’action (« Découvrir », « Commander »…),
   boutons aimantés, texte des boutons qui roule, arches qui deviennent des cadres.
 - Entre les pages : transition en fondu (navigateurs récents).
-- Tout est coupé si le visiteur a demandé « réduire les animations » dans son système.
-  Pour une démonstration, ajouter `?motion=full` à l’adresse force les animations.
+- Toutes les animations sont actives pour tous les visiteurs, quel que soit le réglage de leur
+  appareil. Le bouton « Réduire les animations » du pied de page permet à chacun de les couper
+  (fondus doux uniquement) ; ce choix est mémorisé sur l’appareil (`gt_motion`).
+  On peut aussi forcer un mode avec `?motion=reduce` ou `?motion=full` dans l’adresse.
 
 ## Formulaire de commande
 

@@ -1068,7 +1068,7 @@ html.reduced .pill { width: 1.5em !important; margin: 0 .08em !important; }
 ::view-transition-new(root) { animation: vt-in .7s var(--ease-out) both; }
 @keyframes vt-out { to { opacity: 0; transform: translateY(-14px); } }
 @keyframes vt-in { from { opacity: 0; transform: translateY(18px); } }
-@media (prefers-reduced-motion: reduce) { ::view-transition-old(root), ::view-transition-new(root) { animation: none; } }
+html.reduced::view-transition-old(root), html.reduced::view-transition-new(root) { animation: none; }
 
 @media print {
   .nav, .cursor, .cookie, .hero__petals, .marquee, .garden, .loader, body::after { display: none !important; }
